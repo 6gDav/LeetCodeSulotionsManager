@@ -15,24 +15,19 @@ const ids = [
 ];
 
 async function actionHub(elements: Record<string, HTMLInputElement | null>) {
+  const data = {
+    new_id: elements["leet-code-id"]?.value || "",
+    leetcode_url: elements["leet-code-url"]?.value || "",
+    leetcode_name: elements["leet-code-name"]?.value || "",
+    leetcode_icon: elements["leet-code-icon"]?.value || "",
+    language_url: elements["language-url"]?.value || "",
+    language_name: elements["programming-language"]?.value || "",
+    language_icon: elements["programming-language-icon"]?.value || "",
+    solution_url: elements["solutions-url"]?.value || "",
+    description: elements["description"]?.value || "",
+  };
 
-  try {
-    await invoke("action_managger", {
-      new_id: elements["leet-code-id"]?.value || "",
-      leetcode_url: elements["leet-code-url"]?.value || "",
-      leetcode_name: elements["leet-code-name"]?.value || "",
-      leetcode_icon: elements["leet-code-icon"]?.value || "",
-      language_url: elements["language-url"]?.value || "",
-      language_name: elements["programming-language"]?.value || "",
-      language_icon: elements["programming-language-icon"]?.value || "",
-      solution_url: elements["solutions-url"]?.value || "",
-      description: elements["description"]?.value || "",
-    });
-  }
-  catch (ex) {
-    await invoke("error", {});
-  }
-
+  await invoke("action_managger", { data });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -40,7 +35,6 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     ids.forEach(id => {
-      //elements[id] = document.querySelector<HTMLInputElement>(`#${id}`);
       elements[id] = document.querySelector<HTMLInputElement>(`#${id}`);
     });
 
