@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tauri App</title>
+  <script type="module" src="/src/main.ts" defer></script>
+</head>
+
+<body>
+  <h1>GitHub Automation</h1>
+  <main class="container">
+
+    <form class="row" id="greet-form">
+      <h2>Information</h2>
+
+      <input type="number" id="leet-code-id" placeholder="Enter the id of the LeetCode problem..." /> <br>
+      <input type="text" id="leet-code-name" placeholder="Enter the name of the LeetCode problem..." /> <br>
+      <input type="text" id="leet-code-icon" placeholder="Enter an icon here..." /> <br>
+      <input type="text" id="programming-language" placeholder="Enter the used programming language..." /> <br>
+      <input type="text" id="programming-language-icon" placeholder="Enter the used programming language icon..." />
+      <br>
+
+      <h2>URLs</h2>
+
+      <input type="text" id="leet-code-url" placeholder="Enter the url of the LeetCode problem"> <br>
+      <input type="text" id="language-url" placeholder="Enter the url of the programming language"> <br>
+      <input type="text" id="solutions-url" placeholder="Enter the url of the solutions"> <br>
+
+      <h2>Description</h2>
+
+      <input type="text" id="description" placeholder="Description here"> <br>
+
+      <button type="submit">Upload</button>
+    </form>
+  </main>
+
+  <dialog id="my-dialog">
+    <p id="error-massage"></p>
+    <button id="close-btn">Close</button>
+  </dialog>
+
+</body>
+
+</html>
