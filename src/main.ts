@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 const elements: Record<string, HTMLInputElement | null> = {};
 
 const ids = [
+  'github-token',
   'leet-code-id',
   'leet-code-name',
   'leet-code-icon',
@@ -16,6 +17,7 @@ const ids = [
 
 async function actionHub(elements: Record<string, HTMLInputElement | null>) {
   const data = {
+    token: elements["github-token"]!.value,
     new_id: elements["leet-code-id"]?.value || "",
     leetcode_url: elements["leet-code-url"]?.value || "",
     leetcode_name: elements["leet-code-name"]?.value || "",

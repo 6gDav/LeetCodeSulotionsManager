@@ -1,12 +1,11 @@
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 use base64::{engine::general_purpose, Engine as _};
-use dotenvy::dotenv;
 use nipper::Document;
 use octocrab::Octocrab;
-use std::env;
 
 #[derive(serde::Deserialize)]
 struct RepositoryData {
+    token: String,
     new_id: String,
     leetcode_url: String,
     leetcode_name: String,
@@ -20,6 +19,7 @@ struct RepositoryData {
 
 #[tauri::command]
 async fn action_managger(data: RepositoryData) -> Result<String, String> {
+    let token = &data.token;
     let new_id = &data.new_id;
     let leetcode_url = &data.leetcode_url;
     let leetcode_name = &data.leetcode_name;
@@ -29,9 +29,6 @@ async fn action_managger(data: RepositoryData) -> Result<String, String> {
     let language_icon = &data.language_icon;
     let solution_url = &data.solution_url;
     let description = &data.description;
-
-    dotenv().ok(); // Fontos: beolvassa a .env fájlt
-    let token = env::var("VITE_GITHUB_TOKEN").unwrap_or_else(|_| "There is no token".to_string());
 
     let octocrab = Octocrab::builder()
         .personal_token(token.to_string())
@@ -118,11 +115,14 @@ async fn action_managger(data: RepositoryData) -> Result<String, String> {
 
     // --- 3. ASZINKRON MŰVELET (GitHub feltöltés) ---
     // Itt már csak a 'new_html_string'-et használjuk, ami egy sima String (és Send!)
+
+    let commit_message = format!("Automatic update ... problem: {} added", new_id);
+
     octocrab
         .repos(owner, repo)
         .update_file(
             path,
-            "Automatic update with octocrab",
+            commit_message,
             new_html_string,
             file_sha,
         )
