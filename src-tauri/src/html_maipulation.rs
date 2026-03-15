@@ -30,6 +30,7 @@ pub fn html_maipulation(old_html: String, data: &RepositoryData) -> Result<Strin
                 {description}
             </p>
         </section>
+        <br>
         "#,
         id = &data.new_id,
         leetcodeurl = &data.leetcode_url,

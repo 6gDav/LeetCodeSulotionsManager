@@ -1,7 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 5%;
+  background: linear-gradient(60deg, #eb3af1 0%, #f5f910 100%);
+}
+
 input {
   font-size: 20px;
   width: 400px;
-
+  border-radius: 25px;
+  padding: 5px;
 }
 
 h1, h2 {
@@ -12,12 +20,15 @@ h1 {
   font-size: 40px;
 }
 
-.container {
-  text-align: center;
-}
-
 button {
   font-size: 20px;
   margin-top: 15px;
-  padding: 1%;
+  padding: 2%;
+  border-radius: 25px;
+  background-color: rgb(30, 117, 223);
+  color: white;
+}
+
+.container {
+  text-align: center;
 }

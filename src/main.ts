@@ -36,6 +36,9 @@ window.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#greet-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const submitGomb = (e.target as HTMLFormElement).querySelector('button[type="submit"]') as HTMLButtonElement;
+    if (submitGomb) submitGomb.disabled = true;
+
     ids.forEach(id => {
       elements[id] = document.querySelector<HTMLInputElement>(`#${id}`);
     });
@@ -57,5 +60,11 @@ window.addEventListener("DOMContentLoaded", () => {
         dialog.close();
       });
     }
+
+    setTimeout(() => {
+        if (submitGomb) {
+            submitGomb.disabled = false;
+        }
+    }, 3_000_000);
   });
 });
