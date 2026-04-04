@@ -34,7 +34,7 @@ async function actionHub(elements: Record<string, HTMLInputElement | null>) {
 
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#greet-form")?.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    //e.preventDefault();
 
     const submitGomb = (e.target as HTMLFormElement).querySelector('button[type="submit"]') as HTMLButtonElement;
     if (submitGomb) submitGomb.disabled = true;
