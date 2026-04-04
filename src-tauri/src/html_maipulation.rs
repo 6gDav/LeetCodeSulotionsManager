@@ -22,7 +22,7 @@ pub fn html_maipulation(old_html: String, data: &RepositoryData) -> Result<Strin
         <section id="leetcode{id}" class="leetcode-sulotions-container">
             <h2>LeetCode {id}.</h2>
             <h3><a href="{leetcodeurl}" target="_blank" title="LeetCode Link">{leetcodename}</a> {leetcodeicon}</h3>
-            <h3>Programming language: <a href="{languageurl}" target="_blank" title="Rust lang Link">{languagename}</a> {languageicon}</h3>
+            <h3>Programming language: <a href="{languageurl}" target="_blank" title="{languagename} lang Link">{languagename}</a> {languageicon}</h3>
             <h3><a href="{solutionurl}" target="_blank">My solutions</a> ☺️</h3>
             <hr>
             <h3>🧠 How I solved the problem</h3>
