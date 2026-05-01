@@ -7,7 +7,7 @@ This is an application for my LeetCodeSulotions web page, I created this to auto
   Heres the page for this app. 👉 https://6gdav.github.io/LeetCodeSulotions/
 
 
- ## 💻 Tech Stach
+ ## 💻 Tech Stack
 - Tauri
   - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
   - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
